@@ -1,8 +1,17 @@
-<div class='chores' *ngFor = "let list of chores">
-    <h3>{{list.title}}</h3>
-    <ol>
-      <li *ngFor = 'let chore of list.tasks'>{{chore}}</li>
-    </ol>
-    <hr>
- </div>
- 
+<div class="chores">
+  <h3>Chores</h3>
+  <ul>
+     <li *ngFor = 'let chore of chores'>{{chore}}</li>
+  </ul>
+</div>
+<div class='message' *ngIf = "chores.length >= 3">
+  <p>Work Harder!</p>
+</div>
+<hr>
+<div class="doneChores">
+  <h3>Done Chores</h3>
+  <ul>
+     <li *ngFor = 'let done of finishedChores'>{{done}}</li>
+  </ul>
+</div>
+<hr>
