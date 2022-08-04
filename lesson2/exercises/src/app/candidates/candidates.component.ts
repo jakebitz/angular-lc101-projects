@@ -5,6 +5,14 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './candidates.component.html',
   styleUrls: ['./candidates.component.css']
 })
+interface candidateDetails{
+  age: number;
+  mass: string;
+  sidekick: string;
+}
+interface Candidate{
+  name: string;
+}
 export class CandidatesComponent implements OnInit {
    missionName = "LaunchCode Moonshot"
 
@@ -24,9 +32,15 @@ export class CandidatesComponent implements OnInit {
   }
 
   // Code the addToCrew function here:
-
+  addToCrew(person: object){
+    if(!this.crew.includes(person)){
+      this.crew.push(person)
+    }
+  }
 
   // BONUS: Code the changeMissionName function here:
-
+changeMissionName(name:string){
+  this.missionName = name;
+}
 
 }
