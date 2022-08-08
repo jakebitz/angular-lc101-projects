@@ -16,25 +16,26 @@
       </div>
 
       <div class="col-6">
-         <div class="shuttle-background" style="background-color: green">
-            <img src="assets/images/LaunchCode_rocketline_white.png" height = "75" width = "75" [style.left]="0" [style.bottom]="0"/>
+         <div class="shuttle-background" style="background-color: green"[style.backgroundColor]="color">
+            <img #rocketImage src="assets/images/LaunchCode_rocketline_white.png" height = "75" width = "75" [style.left]="0" [style.bottom]="0"/>
          </div>
       </div>
 
       <div class="col-3">
          <div class="container-right"b>
-            <button>Up</button>
-            <button>Down</button>
-            <button>Right</button>
-            <button>Left</button>
+            
+            <button (click)="moveRocket(rocketImage, 'up')" [disabled]="takeOffEnabled">Up</button>
+            <button (click)="moveRocket(rocketImage, 'down')" [disabled]="takeOffEnabled">Down</button>
+            <button (click)="moveRocket(rocketImage, 'right')" [disabled]="takeOffEnabled">Right</button>
+            <button (click)="moveRocket(rocketImage, 'left')" [disabled]="takeOffEnabled">Left</button>
             <h3>Space Shuttle Height</h3>
-            <p>0 km</p>
+            <p>{{height}} km</p>
          </div>
       </div>
    </div>
    <div class="container-control-buttons">
-      <button>Take Off</button>
-      <button>Land</button>
-      <button>Abort Mission</button>
+      <button (click)="handleTakeOff()" [disable]="!takeoffEnabled">Take Off</button>
+      <button (click)="handleLand()" [disable]="takeoffEnabled">Land</button>
+      <button (click)="handleAbort()" [disable]="takeoffEnabled">Abort Mission</button>
    </div>
 </div>
